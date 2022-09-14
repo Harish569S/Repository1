@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.m2e.core.wizards.Maven2ImportWizard"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.m2e"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jdt.ui.Java"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\mindc1jun109\Desktop\Milestone 4\Students.zip"/>
+			<item value="C:\Users\mindc1jun109\Desktop\Milestone 4\College.zip"/>
+			<item value="C:\Users\mindc1jun109\Desktop\Milestone 4\Eureka.zip"/>
+			<item value="C:\Users\mindc1jun109\Desktop\Milestone 4\API.zip"/>
+			<item value="C:\Users\mindc1jun109\Desktop\MSA3_Attempt2\STUDENT.zip"/>
+			<item value="C:\Users\mindc1jun109\Desktop\MSA3_Attempt2\COLLEGE.zip"/>
+			<item value="C:\Users\mindc1jun109\Desktop\MSA3_Attempt2\API_GATEWAY.zip"/>
+			<item value="C:\Users\mindc1jun109\Desktop\MSA3_Attempt2\EurekaServer.zip"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_WIDTH" value="450"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_HEIGHT" value="506"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+		<list key="orderedElements">
+			<item value="org.eclipse.egit.ui.RepositoriesView"/>
+			<item value="org.eclipse.egit.ui.RepositoriesViewAddRepository"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.commands"/>
+		</list>
+		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="gi"/>
+			<item value="git"/>
+		</list>
+	</section>
+</section>
