@@ -1,0 +1,5 @@
+package com.mindtree.patient.repository;
+
+public interface PatientRepository {
+
+}

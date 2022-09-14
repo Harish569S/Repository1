@@ -1,0 +1,17 @@
+package com.mindtree.patient.controller;
+
+import java.util.List;
+
+
+
+public class PatientController {
+
+}
+
+
+//College college=collegeRepository.findById(i).get();
+//List<Student> students=restTemplate.getForObject("http://STUDENT-SERVICE/student/name-in-asc/"+i, List.class);
+//response.setCollege(college);
+//response.setStudents(students);
+//all.add(response);
+//}

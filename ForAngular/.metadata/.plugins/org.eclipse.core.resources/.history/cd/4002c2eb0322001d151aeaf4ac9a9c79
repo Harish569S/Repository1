@@ -1,0 +1,5 @@
+package com.mindtree.springboot.repository;
+
+public interface VehicleRepository extends JpaRepository{
+
+}

@@ -1,0 +1,26 @@
+package com.mindtree.patient.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+
+@RestController
+@RequestMapping("/patient")
+public class PatientController {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+}
+
+
+//College college=collegeRepository.findById(i).get();
+//List<Student> students=restTemplate.getForObject("http://STUDENT-SERVICE/student/name-in-asc/"+i, List.class);
+//response.setCollege(college);
+//response.setStudents(students);
+//all.add(response);
+//}

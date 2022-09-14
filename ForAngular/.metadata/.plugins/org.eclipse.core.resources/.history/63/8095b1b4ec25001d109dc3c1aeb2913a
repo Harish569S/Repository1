@@ -1,0 +1,66 @@
+package com.mindtree.college;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.mindtree.college.controller.CollegeController;
+import com.mindtree.college.entity.College;
+import com.mindtree.college.repository.CollegeRepository;
+
+
+	@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+	@AutoConfigureMockMvc
+	class MicroservicesCollegeApplicationTests {
+
+		@Autowired
+		MockMvc mockMvc;
+		
+      @Autowired
+	  CollegeController collegeController;
+		
+		@Autowired
+		CollegeRepository collegeRepository;
+		
+		
+		@Test
+		void contextLoads() throws Exception {
+			College college=new College();
+			college.setId(1);
+			college.setCollegeName("PES");
+			college.setTotalStudents(4);
+			collegeRepository.save(college);
+			String str="{\"id\":1,\"collegeName\":\"PES\",\"totalStudents\":4}";
+			
+			mockMvc.perform(get("http://localhost:8084/college/1")).andExpect(status().isOk())
+			.andDo(print())
+			.andExpect(content().string(str));
+			
+		}
+		
+//		@Test
+//		void contextLoad1() {
+//	
+//			College college=new College();
+//			college.setId(1);
+//			college.setCollegeName("PES");
+//			college.setTotalStudents(4);
+//		
+//			assertEquals(college, collegeController.getCollege(1));
+			
+			//assertEquals(college, collegeRepository.findById(1));
+			
+	//	}
+		
+		
+}

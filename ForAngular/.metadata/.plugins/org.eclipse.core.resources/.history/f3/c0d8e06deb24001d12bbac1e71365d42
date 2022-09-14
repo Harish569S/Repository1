@@ -1,0 +1,8 @@
+package com.mindtree.eureka;
+
+public class Snippet {
+	public static void main(String[] args) {
+		console.log(response);
+	}
+}
+

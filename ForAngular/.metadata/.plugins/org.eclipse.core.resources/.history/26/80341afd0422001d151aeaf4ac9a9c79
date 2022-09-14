@@ -1,0 +1,27 @@
+package com.mindtree.springboot.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mindtree.springboot.entity.Vehicle;
+import com.mindtree.springboot.repository.VehicleRepository;
+
+@Service
+public class VehiceService {
+
+	@Autowired
+	VehicleRepository vehicleRepository;
+	
+	
+	public Vehicle add(Vehicle vehicle) {
+		return vehicleRepository.save(vehicle);
+		
+	}
+
+
+	public Vehicle findDetails(int id) {
+		// TODO Auto-generated method stub
+		return vehicleRepository.findById(id).get();
+	}
+
+}

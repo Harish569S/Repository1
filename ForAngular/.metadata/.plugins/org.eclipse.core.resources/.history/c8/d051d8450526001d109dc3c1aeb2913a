@@ -1,0 +1,130 @@
+package com.mindtree.doctor;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
+
+import com.mindtree.doctor.controller.DoctorController;
+import com.mindtree.doctor.entity.DoctorDetails;
+import com.mindtree.doctor.repository.DoctorRepository;
+
+
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
+class DocterMsApplicationTests {
+	@Autowired
+	MockMvc mockMvc;
+	
+  @Autowired
+DoctorController doctorController;
+	
+	@Autowired
+	DoctorRepository doctorRepository;
+
+	@Test
+	void contextLoads() {
+	}
+	
+	@BeforeEach
+	void setup() {
+		doctorRepository.deleteAll();
+	}
+	
+	
+	@Test
+	public void togetdoctorByName() throws Exception{
+		DoctorDetails doctor=new DoctorDetails("Madhu",24,"Cardio","Male",0);
+		doctorRepository.save(doctor);
+
+		mockMvc.perform(get("http://localhost:8083/doctor/byname/Madhu")).andExpect(status().isOk())
+		.andDo(print()).andExpect(jsonPath("$.docName").value("Madhu"));
+	}
+	
+	@Test
+	public void togetdoctorsList() throws Exception{
+		DoctorDetails doctor=new DoctorDetails("Madhu",24,"Cardio","Male",0);
+		doctorRepository.save(doctor);
+		doctor=new DoctorDetails("Rajest",24,"Sychology","Male",0);
+		doctorRepository.save(doctor);
+
+		mockMvc.perform(get("http://localhost:8083/doctor")).andExpect(status().isOk())
+		.andDo(print()).andExpect(jsonPath("$.size()",is(2)));
+	}
+	
+  @Test
+  public void testforPost() throws Exception{
+	  mockMvc.perform(post("http://localhost:8083/doctor").contentType(MediaType.APPLICATION_JSON)
+.content("{\"docName\":\"Madhu\",\"docAge\":24,\"gender\":\"Male\",\"specialistIn\":\"Cardio\",\"noOfPatients\":0}"))
+	  .andExpect(status().isCreated());
+  }
+
+
+}
+
+
+
+
+
+
+
+//		.andExpect(content().string(str));
+		
+		//College college=new College();
+//		
+//			college.setCollegeName("PES");
+//			college.setTotalStudents(4);
+//			collegeRepository.save(college);
+//			String str="{\"id\":15,\"collegeName\":\"PES\",\"totalStudents\":4}";
+//			
+//			mockMvc.perform(get("http://localhost:8084/college/15")).andExpect(status().isOk())
+//			.andDo(print())
+//			.andExpect(content().string(str));
+//			
+//			mockMvc.perform(get("http://localhost:8084/college/15")).andExpect(status().isOk())
+//			.andDo(print())
+//			.andExpect(content().contentType(MediaType.APPLICATION_JSON)).andExpect(jsonPath("$.collegeName").value("PES"))
+//			.andExpect(jsonPath("$.totalStudents").value(4)).andExpect(jsonPath("$.id").value(15));
+	
+
+
+
+
+//
+//@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+//@AutoConfigureMockMvc
+//class MicroservicesCollegeApplicationTests {
+//
+//	@Autowired
+//	MockMvc mockMvc;
+//	
+//  @Autowired
+//  CollegeController collegeController;
+//	
+//	@Autowired
+//	CollegeRepository collegeRepository;
+//	
+//	
+//	@Test
+//	void contextLoads() throws Exception {
+//		
+//		String str="{\"id\":1,\"collegeName\":\"PES\",\"totalStudents\":4}";
+//		
+//		mockMvc.perform(get("http://localhost:8084/college/1")).andExpect(status().isOk())
+//		.andDo(print())
+//		.andExpect(content().string(str));
+//	}

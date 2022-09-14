@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;API_Gateway_CA&apos;" deleteContents="false" description="Delete resource &apos;API_Gateway_CA&apos;" element1="/API_Gateway_CA" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1661661281818"/>
+</session>

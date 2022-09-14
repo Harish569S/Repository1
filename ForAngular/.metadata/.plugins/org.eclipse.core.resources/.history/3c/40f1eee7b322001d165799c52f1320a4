@@ -1,0 +1,5 @@
+package com.mindtree.doctor.entity;
+
+public class DoctorDetails {
+
+}

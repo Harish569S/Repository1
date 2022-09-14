@@ -1,0 +1,36 @@
+package com.mindtree.patient.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.mindtree.patient.entity.PatientDetails;
+import com.mindtree.patient.repository.PatientRepository;
+
+
+
+public class PatientService {
+	@Autowired
+	PatientRepository patientRepository;
+	
+	
+	
+	public PatientDetails addPatient(PatientDetails doctorDetails) {
+       return patientRepository.save(doctorDetails)	;
+	}
+	
+	
+	
+	public List<PatientDetails> fetchAllPatientDetails() {
+		return patientRepository.findAll();
+	}
+	
+	
+	
+	public PatientDetails getPatientById(int dId) {
+	 return patientRepository.findById(dId).get();
+	}
+	
+	
+
+}

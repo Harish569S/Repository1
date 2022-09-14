@@ -1,0 +1,80 @@
+package com.mindtree.patient.entity;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="patient")
+public class PatientDetails {
+    
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private String patientName;
+	
+	private String VisitedDoctor;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dateOfVisitt=new Date();
+     
+
+	
+	public PatientDetails() {
+		super();
+	}
+
+	public PatientDetails(String patientName, String visitedDoctor) {
+		super();
+		this.patientName = patientName;
+		VisitedDoctor = visitedDoctor;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPatientName() {
+		return patientName;
+	}
+
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
+
+	public String getVisitedDoctor() {
+		return VisitedDoctor;
+	}
+
+	public void setVisitedDoctor(String visitedDoctor) {
+		VisitedDoctor = visitedDoctor;
+	}
+
+	public Date getDateOfVisitt() {
+		return dateOfVisitt;
+	}
+
+	public void setDateOfVisitt(Date dateOfVisitt) {
+		this.dateOfVisitt = dateOfVisitt;
+	}
+
+	@Override
+	public String toString() {
+		return "PatientDetails [id=" + id + ", patientName=" + patientName + ", VisitedDoctor=" + VisitedDoctor
+				+ ", dateOfVisitt=" + dateOfVisitt + "]";
+	}
+	
+
+	
+}

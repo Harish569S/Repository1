@@ -1,0 +1,13 @@
+package com.mindtree.patient.entity;
+
+import java.util.Date;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+public class PatientDetails {
+
+	
+	@Temporal(TemporalType.DATE)
+	private Date date=new Date();
+}
